@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3升4暑假奥数班 - 数学思维启蒙关键期</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d5eaf, #00a896, #02c39a);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .poster-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .poster {
+            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            border: 8px solid #ff9a00;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #0d5eaf, #0288d1);
+            color: white;
+            padding: 35px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #ff9a00;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+        
+        .math-elements {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            color: white;
+        }
+        
+        .math1 { top: 20px; left: 30px; }
+        .math2 { top: 50px; right: 40px; }
+        .math3 { bottom: 30px; left: 50px; }
+        .math4 { bottom: 20px; right: 60px; }
+        
+        .grade-tag {
+            background: #ff9a00;
+            color: #0d5eaf;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Comic Neue', cursive;
+            border: 3px dashed white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            position: relative;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: #ffeb3b;
+        }
+        
+        .header h2 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .tagline {
+            background: rgba(255, 154, 0, 0.95);
+            color: #0d5eaf;
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            position: relative;
+            border: 3px solid white;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 40px;
+        }
+        
+        .problem-section, .solution-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(13, 94, 175, 0.15);
+            border: 3px solid #0d5eaf;
+            transition: transform 0.4s;
+        }
+        
+        .problem-section:hover, .solution-section:hover {
+            transform: translateY(-8px) rotate(1deg);
+        }
+        
+        .section-title {
+            color: #0d5eaf;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #ff9a00;
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            background: #0d5eaf;
+            color: #ff9a00;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .problem-list, .benefit-list {
+            list-style-type: none;
+        }
+        
+        .problem-list li, .benefit-list li {
+            margin-bottom: 18px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        .problem-list li::before, .benefit-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .problem-list li::before {
+            content: "?";
+            background: #e74c3c;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .benefit-list li::before {
+            content: "✓";
+            background: #2ecc71;
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 154, 0, 0.3), transparent 70%);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #0d5eaf;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .curriculum {
+            grid-column: span 2;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 12px 30px rgba(13, 94, 175, 0.15);
+            border: 3px solid #0d5eaf;
+            margin-top: 20px;
+        }
+        
+        .curriculum-intro {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+            color: #0d5eaf;
+            font-weight: 600;
+            max-width: 800px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+        }
+        
+        .curriculum-intro span {
+            color: #e74c3c;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .subject-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(13, 94, 175, 0.1);
+            transition: transform 0.4s;
+            border: 2px solid #0d5eaf;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subject-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #ff9a00, #0d5eaf);
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(13, 94, 175, 0.2);
+        }
+        
+        .subject-card h3 {
+            color: #0d5eaf;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .subject-card h3 i {
+            margin-right: 15px;
+            color: #ff9a00;
+            font-size: 1.8rem;
+            background: #f0f7ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .topic-list {
+            list-style-type: none;
+        }
+        
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.15rem;
+        }
+        
+        .topic-list li::before {
+            content: "★";
+            position: absolute;
+            left: 5px;
+            color: #ff9a00;
+            font-size: 1.2rem;
+        }
+        
+        .features {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(13, 94, 175, 0.15);
+            border: 3px solid #0d5eaf;
+            transition: transform 0.4s;
+        }
+        
+        .feature-card:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            color: #0d5eaf;
+            margin-bottom: 25px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: #0d5eaf;
+            margin-bottom: 20px;
+            font-size: 1.7rem;
+            font-weight: 800;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .cta-section {
+            background: linear-gradient(90deg, #0d5eaf, #0288d1);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            grid-column: span 2;
+            border-radius: 20px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #ff9a00;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff9a00' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 900;
+            position: relative;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            color: #ffeb3b;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .cta-text {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff9a00;
+            color: #0d5eaf;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 20px 55px;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            margin: 15px 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: 'Comic Neue', cursive;
+            border: 3px solid white;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            background: #ffa726;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        }
+        
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 3px solid #ff9a00;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 2px solid #ff9a00;
+        }
+        
+        .contact-item i {
+            margin-right: 12px;
+            font-size: 1.5rem;
+            color: #ff9a00;
+        }
+        
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 35px;
+            color: #ffeb3b;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 50px;
+            max-width: 700px;
+            margin: 35px auto 0;
+        }
+        
+        .guarantee i {
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+            font-size: 1.8rem;
+        }
+        
+        .footer {
+            background: #0a4a8a;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 25px;
+            font-size: 1.1rem;
+            grid-column: span 2;
+            border-radius: 0 0 15px 15px;
+            font-weight: 500;
+            border-top: 3px solid #ff9a00;
+        }
+        
+        .footer p:first-child {
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .curriculum, .cta-section, .features {
+                grid-column: 1;
+            }
+            
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+                padding: 12px 25px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 移动端适配增强 */
+        @media (max-width: 600px) {
+            .content {
+                grid-template-columns: 1fr !important;
+                padding: 10px !important;
+            }
+            .curriculum, .cta-section, .features {
+                grid-column: 1 !important;
+                padding: 10px !important;
+            }
+            .curriculum-grid, .features {
+                grid-template-columns: 1fr !important;
+            }
+            .header h1 {
+                font-size: 1.5rem !important;
+            }
+            .header h2, .tagline {
+                font-size: 1rem !important;
+                padding: 8px 5px !important;
+            }
+            .section-title {
+                font-size: 1.1rem !important;
+            }
+            .btn {
+                font-size: 1rem !important;
+                padding: 10px 5px !important;
+            }
+            .contact-info {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            .contact-item {
+                width: 100% !important;
+                max-width: 250px !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="poster">
+            <div class="header">
+                <div class="math-elements math1">π</div>
+                <div class="math-elements math2">∑</div>
+                <div class="math-elements math3">∞</div>
+                <div class="math-elements math4">∆</div>
+                
+                <div class="grade-tag">3升4数学启蒙关键期</div>
+                <h1>暑假奥数启蒙班</h1>
+                <h2>开启数学思维之门 · 培养终身受益的逻辑能力</h2>
+                <div class="tagline">快乐学数学 · 玩转奥数思维 · 15天奇妙之旅</div>
+            </div>
+            
+            <div class="content">
+                <div class="problem-section">
+                    <h2 class="section-title"><i class="fas fa-question-circle"></i> 3升4学生常见问题</h2>
+                    <ul class="problem-list">
+                        <li>从形象思维到抽象思维<span class="highlight">过渡困难</span>，数学兴趣下降</li>
+                        <li>面对应用题<span class="highlight">无从下手</span>，缺乏解题思路</li>
+                        <li>计算能力薄弱，<span class="highlight">速度慢且错误率高</span></li>
+                        <li>数学学习停留在<span class="highlight">记忆层面</span>，缺乏思维训练</li>
+                        <li>空间想象力不足，<span class="highlight">几何概念理解困难</span></li>
+                        <li>缺乏<span class="highlight">系统思维训练</span>，逻辑推理能力弱</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-section">
+                    <h2 class="section-title"><i class="fas fa-lightbulb"></i> 我们的解决方案</h2>
+                    <ul class="benefit-list">
+                        <li><span class="highlight">趣味教学</span> - 游戏化学习激发数学兴趣</li>
+                        <li><span class="highlight">思维可视化</span> - 将抽象概念转化为直观模型</li>
+                        <li><span class="highlight">手脑并用</span> - 教具操作培养空间想象力</li>
+                        <li><span class="highlight">情境教学</span> - 生活场景中理解数学应用</li>
+                        <li><span class="highlight">小步进阶</span> - 循序渐进建立数学自信</li>
+                        <li><span class="highlight">习惯培养</span> - 建立数学思维与解题习惯</li>
+                    </ul>
+                </div>
+                
+                <div class="curriculum">
+                    <h2 class="section-title"><i class="fas fa-book"></i> 趣味奥数课程体系</h2>
+                    
+                    <p class="curriculum-intro">
+                        <span>"玩中学，学中悟"</span> 是我们3升4奥数启蒙班的核心理念！通过15天精心设计的课程，让孩子在游戏、故事和动手实践中爱上数学，建立数学思维基础，为四年级数学学习做好充分准备！
+                    </p>
+                    
+                    <div class="curriculum-grid">
+                        <div class="subject-card">
+                            <h3><i class="fas fa-puzzle-piece"></i> 趣味数字谜</h3>
+                            <ul class="topic-list">
+                                <li>加减法数字谜游戏</li>
+                                <li>乘法竖式探秘</li>
+                                <li>除法竖式挑战</li>
+                                <li>巧填算符游戏</li>
+                                <li>火柴棒数字谜</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="subject-card">
+                            <h3><i class="fas fa-shapes"></i> 图形大冒险</h3>
+                            <ul class="topic-list">
+                                <li>巧求周长趣味挑战</li>
+                                <li>长方形与正方形探秘</li>
+                                <li>图形计数游戏</li>
+                                <li>一笔画与七桥问题</li>
+                                <li>图形规律发现</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="subject-card">
+                            <h3><i class="fas fa-brain"></i> 逻辑小侦探</h3>
+                            <ul class="topic-list">
+                                <li>植树问题趣味实践</li>
+                                <li>年龄问题情景模拟</li>
+                                <li>周期问题探索</li>
+                                <li>分类枚举游戏</li>
+                                <li>简单逻辑推理</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="subject-card">
+                            <h3><i class="fas fa-calculator"></i> 计算小能手</h3>
+                            <ul class="topic-list">
+                                <li>整数巧算技巧</li>
+                                <li>乘法巧算游戏</li>
+                                <li>除法巧算挑战</li>
+                                <li>归一问题应用</li>
+                                <li>倒序求和入门</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="subject-card">
+                            <h3><i class="fas fa-gamepad"></i> 数学游乐场</h3>
+                            <ul class="topic-list">
+                                <li>扫雷与搭帐篷游戏</li>
+                                <li>幻方与数独挑战</li>
+                                <li>火柴棒图形游戏</li>
+                                <li>数学谜语猜猜看</li>
+                                <li>数学桌游大作战</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="subject-card">
+                            <h3><i class="fas fa-chart-line"></i> 应用小达人</h3>
+                            <ul class="topic-list">
+                                <li>和差倍问题故事</li>
+                                <li>盈亏问题实践</li>
+                                <li>鸡兔同笼游戏</li>
+                                <li>平均数趣味应用</li>
+                                <li>生活中的数学</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>趣味启蒙</h3>
+                        <p>专为3-4年级设计的趣味教学法，通过游戏、故事和教具，让数学学习充满乐趣</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>手脑并用</h3>
+                        <p>每节课配备专属数学教具包，通过动手操作培养空间思维和逻辑能力</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>成果显著</h3>
+                        <p>去年学员中，95%建立数学自信，90%在四年级数学学习中名列前茅</p>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h2>开启孩子的数学思维之旅！</h2>
+                    <p class="cta-text">3升4是数学思维启蒙的黄金时期！我们的暑假奥数班专为这个关键阶段设计，通过趣味教学和系统训练，帮助孩子建立数学自信，培养逻辑思维，为未来学习打下坚实基础！</p>
+                    
+                    <a href="#enroll" class="btn">立即报名参加</a>
+                    <a href="#consult" class="btn btn-secondary">预约免费体验课</a>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>咨询热线: 199-0289-0887</span>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

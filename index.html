@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暑假数学班课程导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+        }
+        .container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 40px 30px 30px 30px;
+            max-width: 500px;
+            width: 95vw;
+            margin: 40px 0;
+        }
+        h1 {
+            text-align: center;
+            color: #1a2980;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #26d0ce;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-list li {
+            margin: 18px 0;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 18px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(26,41,128,0.08);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .nav-link:hover {
+            background: linear-gradient(90deg, #26d0ce 0%, #1a2980 100%);
+            transform: translateY(-3px) scale(1.03);
+        }
+        .nav-link i {
+            margin-right: 18px;
+            font-size: 1.5rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 5vw 18px 5vw;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .nav-link {
+                font-size: 1rem;
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-graduation-cap"></i> 暑假数学班课程导航</h1>
+        <div class="subtitle">选择年级，开启专属暑假学习之旅</div>
+        <ul class="nav-list">
+            <li><a class="nav-link" href="3升4.html"><i class="fas fa-child"></i>3升4 数学思维启蒙班</a></li>
+            <li><a class="nav-link" href="4升5.html"><i class="fas fa-user-graduate"></i>4升5 关键过渡强化班</a></li>
+            <li><a class="nav-link" href="5升6.html"><i class="fas fa-chalkboard-teacher"></i>5升6 私立名校特训班</a></li>
+            <li><a class="nav-link" href="6升7.html"><i class="fas fa-school"></i>6升7 小升初分班考冲刺</a></li>
+            <li><a class="nav-link" href="7升8.html"><i class="fas fa-brain"></i>7升8 初二数学强化班</a></li>
+            <li><a class="nav-link" href="8升9.html"><i class="fas fa-trophy"></i>8升9 中考压轴题抢跑计划</a></li>
+        </ul>
+    </div>
+</body>
+</html> 

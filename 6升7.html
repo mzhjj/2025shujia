@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小升初分班考备战计划 - 抢占名校先机</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .poster-container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #d31027, #ea384d);
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tagline {
+            background: #ffd700;
+            color: #b21f1f;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .content {
+            display: flex;
+            padding: 30px;
+        }
+        
+        .left-column {
+            flex: 1;
+            padding-right: 30px;
+            border-right: 2px dashed #ea384d;
+        }
+        
+        .right-column {
+            flex: 1;
+            padding-left: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #d31027;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #ffd700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            background: #d31027;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .urgency-box {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(255,75,43,0.3);
+        }
+        
+        .urgency-title {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 10px;
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin-left: 15px;
+        }
+        
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: #d31027;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            background: rgba(255,215,0,0.2);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .highlight {
+            background: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffd700;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .highlight strong {
+            color: #d31027;
+        }
+        
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timetable th {
+            background: #d31027;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .timetable tr:nth-child(even) {
+            background: #fff5f5;
+        }
+        
+        .timetable td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .benefit-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #ffd700;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: #d31027;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-card h3 {
+            color: #d31027;
+            margin-bottom: 8px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .deadline {
+            background: #ffd700;
+            color: #b21f1f;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 16px 45px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px 10px;
+            box-shadow: 0 8px 20px rgba(255,75,43,0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255,75,43,0.6);
+        }
+        
+        .contact-info {
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+        
+        .guarantee {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        
+        .footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .left-column, .right-column {
+                padding: 0;
+                border: none;
+            }
+            
+            .left-column {
+                padding-bottom: 30px;
+                border-bottom: 2px dashed #ea384d;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin: 10px 0;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 移动端适配增强 */
+        @media (max-width: 600px) {
+            .content {
+                flex-direction: column !important;
+                padding: 10px !important;
+            }
+            .left-column, .right-column {
+                padding: 0 !important;
+                border: none !important;
+            }
+            .header h1 {
+                font-size: 1.3rem !important;
+            }
+            .subtitle, .tagline {
+                font-size: 1rem !important;
+                padding: 8px 5px !important;
+            }
+            .section-title {
+                font-size: 1.1rem !important;
+            }
+            .btn {
+                font-size: 1rem !important;
+                padding: 10px 5px !important;
+            }
+            .contact-info {
+                font-size: 0.9rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="header">
+            <h1>小升初入学能力诊断冲刺计划</h1>
+            <div class="subtitle">超前掌握初中核心知识 · 精准命中分班考真题 · 抢占名校优质教育资源</div>
+        </div>
+        
+        <div class="tagline">
+            <i class="fas fa-exclamation-triangle"></i> 分班考是初中阶段最重要的考试！入学即分层，一战定三年！
+        </div>
+        
+        <div class="content">
+            <div class="left-column">
+                <div class="urgency-box">
+                    <div class="urgency-title">为什么必须提前备战分班考？</div>
+                    <p>摇号只是入场券，分班考才是真正的竞技场！初中老师命题远超小学难度，普通学生需要3个月适应的初中内容，分班考中却直接作为选拔标准！</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-value">78%</div>
+                            <div>重点中学分班淘汰率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1.5年</div>
+                            <div>课程进度领先优势</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">85%</div>
+                            <div>真题命中率</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-rocket"></i> 课程核心优势</h2>
+                    <ul class="feature-list">
+                        <li><strong>超纲学习：</strong> 六升七暑假学完七年级上全部内容，秋季班涉及八年级知识</li>
+                        <li><strong>真题导向：</strong> 教研团队深度解析本地8所名校近5年分班考真题</li>
+                        <li><strong>名师天团：</strong> 3位中考阅卷组成员+5位私立名校学科带头人</li>
+                        <li><strong>精准预测：</strong> 精准预判命题方向，今年新增"动点问题"押题模块</li>
+                        <li><strong>分层教学：</strong> 根据诊断结果动态分班，确保每位学员高效提升</li>
+                        <li><strong>独家资源：</strong> 提供《当地重点初中分班考真题演练》</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <strong>关键发现：</strong> 2024年本市重点初中分班考数学卷中，42%考点来自七年级上内容，但普通学校要到初一期末才能完成这些内容！
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-calendar-alt"></i> 课程体系规划</h2>
+                    <h3>六升七暑假班（核心突破）：</h3>
+                    <table class="timetable">
+                        <tr>
+                            <th>模块</th>
+                            <th>内容</th>
+                            <th>领先优势</th>
+                        </tr>
+                        <tr>
+                            <td>有理数进阶</td>
+                            <td>4讲深度强化</td>
+                            <td>超前学校3个月</td>
+                        </tr>
+                        <tr>
+                            <td>整式与方程</td>
+                            <td>5讲系统突破</td>
+                            <td>覆盖七年级核心</td>
+                        </tr>
+                        <tr>
+                            <td>几何基础</td>
+                            <td>线与角专题</td>
+                            <td>搭建几何思维</td>
+                        </tr>
+                        <tr>
+                            <td>真题特训</td>
+                            <td>8讲实战演练</td>
+                            <td>精准对接分班考</td>
+                        </tr>
+                    </table>
+                    
+                    <h3 style="margin-top: 25px;">七年级秋季班（持续领先）：</h3>
+                    <table class="timetable">
+                        <tr>
+                            <th>模块</th>
+                            <th>内容</th>
+                            <th>难度等级</th>
+                        </tr>
+                        <tr>
+                            <td>绝对值深化</td>
+                            <td>代数+几何意义</td>
+                            <td>★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>整式综合</td>
+                            <td>幂运算+乘除</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>动点问题</td>
+                            <td>中考压轴题源</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>方程进阶</td>
+                            <td>含字母系数</td>
+                            <td>★★★★</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-medal"></i> 学员成果保障</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-trophy"></i>
+                            <h3>重点班录取率</h3>
+                            <p>2024届学员86%进入名校重点班</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>成绩提升幅度</h3>
+                            <p>平均提分35+，最高提升62分</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>师资配置</h3>
+                            <p>一线师资+教研组长</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-book"></i>
+                            <h3>独家资料</h3>
+                            <p>5年真题库+预测卷+方法手册</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2 class="cta-title">抢占名校优质教育资源席位！</h2>
+            <p>入学分班考只有一次机会，现在行动才能抢占先机！</p>
+            
+         
+            <div>
+                <a href="#" class="btn"><i class="fas fa-phone-alt"></i> 立即预约测评</a>
+                <a href="#" class="btn" style="background: linear-gradient(to right, #1a2a6c, #2a3a8c);">
+                    <i class="fas fa-calendar-check"></i> 报名试听课
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 咨询热线：199-0289-0887（微信）</p>
+                
+               
+            </div>
+            
+            
+        </div>
+        
+        <div class="footer">
+            
