@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8升9暑假抢跑计划 - 手机版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .mobile-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* 顶部导航 */
+        .mobile-nav {
+            background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-nav .logo {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav .logo i {
+            margin-right: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .mobile-nav .cta-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav .cta-btn i {
+            margin-left: 5px;
+        }
+        
+        /* 头部区域 */
+        .mobile-header {
+            background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+            padding: 25px 20px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .mobile-header::after {
+            content: "";
+            position: absolute;
+            bottom: -70px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .mobile-header h1 {
+            color: white;
+            font-size: 1.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+            line-height: 1.3;
+        }
+        
+        .mobile-header h2 {
+            color: #ffeb3b;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mobile-tagline {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+        
+        /* 内容区域 */
+        .mobile-content {
+            padding: 20px;
+        }
+        
+        .mobile-section {
+            margin-bottom: 30px;
+        }
+        
+        .mobile-section-title {
+            color: #ff416c;
+            font-size: 1.4rem;
+            border-left: 4px solid #ff416c;
+            padding: 8px 0 8px 15px;
+            margin: 20px 0 15px;
+            position: relative;
+            font-weight: bold;
+        }
+        
+        .mobile-section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, #ff416c, transparent);
+        }
+        
+        .mobile-highlight {
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-highlight h3 {
+            color: #1a2980;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .mobile-highlight p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* 比较区域 */
+        .mobile-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .mobile-comparison-box {
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .mobile-comparison-box.us {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .mobile-comparison-box.textbook {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .mobile-comparison-title {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .mobile-comparison-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .mobile-comparison-box ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .mobile-comparison-box li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .mobile-comparison-box li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .mobile-comparison-box.us li::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+        }
+        
+        .mobile-comparison-box.textbook li::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
+        }
+        
+        /* 课程区域 */
+        .mobile-curriculum {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-curriculum h4 {
+            color: #1a2980;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .mobile-curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .mobile-curriculum-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid #4facfe;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-curriculum-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-curriculum-item::before {
+            content: "•";
+            color: #4facfe;
+            font-size: 1.5rem;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* 优势卡片 */
+        .mobile-benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .mobile-benefit-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 5px solid #ff416c;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-benefit-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        }
+        
+        .mobile-benefit-card h4 {
+            color: #ff416c;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .mobile-benefit-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* CTA区域 */
+        .mobile-cta {
+            text-align: center;
+            padding: 25px 20px;
+            background: linear-gradient(90deg, #00b09b 0%, #96c93d 100%);
+            margin: 25px 0;
+            border-radius: 15px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-cta::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .mobile-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-deadline {
+            background: #ffeb3b;
+            color: #d32f2f;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mobile-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .mobile-btn {
+            display: block;
+            background: #ff416c;
+            color: white;
+            padding: 16px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255,65,108,0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .mobile-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,65,108,0.6);
+        }
+        
+        .mobile-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* 底部区域 */
+        .mobile-footer {
+            background: #1a2980;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .mobile-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        }
+        
+        .mobile-contact {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 20px;
+        }
+        
+        .mobile-contact a {
+            color: #ffeb3b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1rem;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .mobile-section, .mobile-highlight, .mobile-comparison-box, 
+        .mobile-curriculum, .mobile-benefit-card, .mobile-cta {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .mobile-curriculum-item:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-curriculum-item:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-curriculum-item:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-curriculum-item:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-curriculum-item:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-curriculum-item:nth-child(6) { animation-delay: 0.6s; }
+        .mobile-curriculum-item:nth-child(7) { animation-delay: 0.7s; }
+        .mobile-curriculum-item:nth-child(8) { animation-delay: 0.8s; }
+        .mobile-curriculum-item:nth-child(9) { animation-delay: 0.9s; }
+        .mobile-curriculum-item:nth-child(10) { animation-delay: 1.0s; }
+        .mobile-curriculum-item:nth-child(11) { animation-delay: 1.1s; }
+        .mobile-curriculum-item:nth-child(12) { animation-delay: 1.2s; }
+        .mobile-curriculum-item:nth-child(13) { animation-delay: 1.3s; }
+        .mobile-curriculum-item:nth-child(14) { animation-delay: 1.4s; }
+        
+        /* 响应式调整 */
+        @media (min-width: 480px) {
+            .mobile-benefits {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .mobile-btn-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .mobile-btn {
+                padding: 16px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- 顶部导航 -->
+        <div class="mobile-nav">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>中考数学专家</span>
+            </div>
+            <a href="#consult" class="cta-btn">
+                咨询课程 <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <!-- 头部区域 -->
+        <div class="mobile-header">
+            <h1>8升9年级暑假抢跑计划</h1>
+            <h2>攻克中考压轴题 · 抢占名校先机</h2>
+            <div class="mobile-tagline">90%学生败在压轴题！14讲锁定中考数学核心命脉</div>
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <div class="mobile-content">
+            <!-- 残酷现实 -->
+            <div class="mobile-section">
+                <div class="mobile-highlight">
+                    <h3><i class="fas fa-exclamation-triangle"></i> 残酷现实</h3>
+                    <p>中考数学呈现"两极分化"趋势：基础题简单化，压轴题竞赛化！普通学生用30分钟完成90分基础题，却在压轴题上耗费90分钟仍无从下手。根本原因：学校进度严重滞后，当九下才学完相似三角形和二次函数深化时，中考已迫在眉睫！</p>
+                </div>
+            </div>
+            
+            <!-- 战略破局 -->
+            <div class="mobile-section">
+                <div class="mobile-section-title">战略破局：暑假抢跑计划核心价值</div>
+                
+                <div class="mobile-comparison">
+                    <div class="mobile-comparison-box us">
+                        <div class="mobile-comparison-title">我们的战略</div>
+                        <ul>
+                            <li>超前完成相似三角形全模型体系</li>
+                            <li>构建二次函数完整知识链</li>
+                            <li>建立函数综合解题框架</li>
+                            <li>植入圆的核心性质基础</li>
+                            <li>为秋季压轴题训练预留6个月</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-comparison-box textbook">
+                        <div class="mobile-comparison-title">人教版致命缺陷</div>
+                        <ul>
+                            <li>相似三角形推迟到九下</li>
+                            <li>二次函数深化内容滞后</li>
+                            <li>函数综合训练严重不足</li>
+                            <li>圆的知识链断裂不完整</li>
+                            <li>压轴题训练仅剩3个月</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 课程内容 -->
+            <div class="mobile-section">
+                <div class="mobile-section-title">课程核武器：14讲攻克中考命脉</div>
+                
+                <div class="mobile-curriculum">
+                    <h4>暑假班核心内容（每讲2.0小时深度精讲+实战）</h4>
+                    <div class="mobile-curriculum-grid">
+                        <div class="mobile-curriculum-item">第1讲：比例线段</div>
+                        <div class="mobile-curriculum-item">第2讲：相似的初步</div>
+                        <div class="mobile-curriculum-item">第3讲：相似的常见模型</div>
+                        <div class="mobile-curriculum-item">第4讲：相似经典模型拆解（旋转/双垂）</div>
+                        <div class="mobile-curriculum-item">第5讲：相似的综合探究</div>
+                        <div class="mobile-curriculum-item">第6讲：相似模型体系构建（A字/8字/射影）</div>
+                        <div class="mobile-curriculum-item">第7讲：位似变换与三视图破解</div>
+                        <div class="mobile-curriculum-item">第8讲：锐角三角函数的实战应用</div>
+                        <div class="mobile-curriculum-item">第9讲：反比例函数K的几何意义</div>
+                        <div class="mobile-curriculum-item">第10讲：反比例与一次函数综合攻坚</div>
+                        <div class="mobile-curriculum-item">第11讲：二次函数图象与性质深度剖析</div>
+                        <div class="mobile-curriculum-item">第12讲：二次函数解析式与变换技巧</div>
+                        <div class="mobile-curriculum-item">第13讲：圆的基本性质与核心定理</div>
+                        <div class="mobile-curriculum-item">第14讲：圆的位置关系与综合应用</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 为什么选择我们 -->
+            <div class="mobile-section">
+                <div class="mobile-section-title">为什么选择我们的抢跑计划？</div>
+                
+                <div class="mobile-benefits">
+                    <div class="mobile-benefit-card">
+                        <h4><i class="fas fa-clock"></i> 时间优势</h4>
+                        <p>比学校提前6个月完成核心模块，为压轴题训练留出战略窗口期</p>
+                    </div>
+                    
+                    <div class="mobile-benefit-card">
+                        <h4><i class="fas fa-bullseye"></i> 靶向训练</h4>
+                        <p>直击近3年中考压轴题高频考点，精准度达90%以上</p>
+                    </div>
+                    
+                    <div class="mobile-benefit-card">
+                        <h4><i class="fas fa-chart-line"></i> 难度突破</h4>
+                        <p>课程难度超纲30%，覆盖中考难题所有解题思维模型</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA区域 -->
+            <div class="mobile-cta">
+                <h3>中考关键期，别让孩子输在"学习方法"上！</h3>
+                <div class="mobile-deadline">微信咨询：19902890887</div>
+                <p>报名时间｜7月5日截止</p>
+                
+                <div class="mobile-btn-group">
+                    <a href="#enroll" class="mobile-btn">
+                        <i class="fas fa-calendar-check"></i> 立即预约学位
+                    </a>
+                    <a href="#consult" class="mobile-btn secondary">
+                        <i class="fas fa-comments"></i> 咨询课程详情
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 秋季延续 -->
+            <div class="mobile-section">
+                <div class="mobile-section-title">秋季延续：压轴题歼灭计划</div>
+                <p>暑假班学员将无缝衔接秋季16讲压轴题专项训练，包括：</p>
+                <ul style="margin-top: 15px; padding-left: 25px;">
+                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                        <i class="fas fa-fire" style="color: #ff416c; position: absolute; left: 0;"></i>
+                        二次函数与特殊三角形/四边形综合
+                    </li>
+                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                        <i class="fas fa-fire" style="color: #ff416c; position: absolute; left: 0;"></i>
+                        相似与圆的综合探究题破解
+                    </li>
+                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                        <i class="fas fa-fire" style="color: #ff416c; position: absolute; left: 0;"></i>
+                        辅助圆构造与最值问题
+                    </li>
+                    <li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                        <i class="fas fa-fire" style="color: #ff416c; position: absolute; left: 0;"></i>
+                        动态几何与函数综合题
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 底部区域 -->
+        <div class="mobile-footer">
+            <p>© 2023 中考数学专家 | 专业提升数学解题能力</p>
+            <div class="mobile-contact">
+                <a href="tel:19902890887">
+                    <i class="fas fa-phone"></i> 19902890887
+                </a>
+                <a href="weixin://">
+                    <i class="fab fa-weixin"></i> 微信咨询
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 按钮悬停效果
+            const buttons = document.querySelectorAll('.mobile-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // 课程项悬停效果
+            const curriculumItems = document.querySelectorAll('.mobile-curriculum-item');
+            curriculumItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 5px 12px rgba(0,0,0,0.1)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 3px 8px rgba(0,0,0,0.06)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
